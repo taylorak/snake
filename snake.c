@@ -6,8 +6,14 @@
 snake *init_snake(int x_pos, int y_pos,direction dir)
 {
   // init new snake and first segment
-  snake *new_snake       = malloc(sizeof(snake));
-  segment *first_segment = malloc(sizeof(segment));
+  snake *new_snake       = NULL;
+  segment *first_segment = NULL;
+  if((new_snake = malloc(sizeof(snake))) == NULL) {
+    return NULL;
+  }
+  if((first_segment = malloc(sizeof(segment))) == NULL) {
+    return NULL;
+  }
 
   first_segment->x = x_pos;
   first_segment->y = y_pos;
@@ -108,6 +114,7 @@ int destroy_snake(snake *snake)
 
 int die(snake *snake)
 {
+  // kill snake
   snake->stat = DEAD;
   return 0;
 }

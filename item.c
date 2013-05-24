@@ -8,6 +8,7 @@ item *init_item(snake *snake,int max_x,int max_y)
 {
   item *new_item = malloc(sizeof(item));
   
+  srand(time(NULL));
   change_pos(snake,new_item,max_x,max_y);
   return new_item;
 }
@@ -18,9 +19,8 @@ int change_pos(snake *snake,item *item,int max_x,int max_y)
   int y = -1;
   segment *cur = snake->head;
 
-  srand(time(NULL));
   while(x < 0 && y < 0 && y != max_y && x != max_x) {
-    x = rand() %(max_x-1) + 1;
+    x = rand() % (max_x-1) + 1;
     y = rand() % (max_y-1) + 1;
 
     while((cur = cur->next) != NULL) {
