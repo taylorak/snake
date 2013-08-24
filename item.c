@@ -6,8 +6,10 @@
 
 item *init_item(snake *snake,int max_x,int max_y)
 {
-  item *new_item = malloc(sizeof(item));
-  
+  item *new_item = NULL;
+  if((new_item = malloc(sizeof(item))) == NULL) {
+    return NULL;
+  } 
   srand(time(NULL));
   change_pos(snake,new_item,max_x,max_y);
   return new_item;
