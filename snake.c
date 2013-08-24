@@ -25,7 +25,7 @@ snake *init_snake(int x_pos, int y_pos,direction dir)
   new_snake->dir  = dir;
   new_snake->head = first_segment;
   new_snake->tail = first_segment;
-  new_snake->length   = 1;
+  new_snake->length = 1;
 
   return new_snake;
 }
