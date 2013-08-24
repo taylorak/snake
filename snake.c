@@ -6,7 +6,7 @@
 snake *init_snake(int x_pos, int y_pos,direction dir)
 {
   // init new snake and first segment
-  snake *new_snake       = NULL;
+  snake *new_snake = NULL;
   segment *first_segment = NULL;
   if((new_snake = malloc(sizeof(snake))) == NULL) {
     return NULL;
@@ -39,17 +39,17 @@ int move_snake(snake *snake)
   if(snake->head != snake->tail){
    
     // remove tail
-    snake->tail           = cur_tail->prev;
+    snake->tail = cur_tail->prev;
     cur_tail->prev->next  = NULL;
 
     // move tail to head
     cur_tail->x = snake->head->x;
     cur_tail->y = snake->head->y;
     
-    cur_tail->prev    = NULL;
-    cur_tail->next    = snake->head;
+    cur_tail->prev = NULL;
+    cur_tail->next = snake->head;
     snake->head->prev = cur_tail;
-    snake->head       = cur_tail;
+    snake->head = cur_tail;
 
   }
   
@@ -80,14 +80,14 @@ int add_segment(snake *snake)
   segment *new_segment = malloc(sizeof(segment));
   
   // place new segment on tail
-  new_segment->x    = snake->tail->x;
-  new_segment->y    = snake->tail->y;
+  new_segment->x = snake->tail->x;
+  new_segment->y = snake->tail->y;
   new_segment->prev = snake->tail;
   new_segment->next = NULL;
 
   // make new segment the tail
   snake->tail->next = new_segment;
-  snake->tail       = new_segment;
+  snake->tail = new_segment;
   snake->length++;
   
   return 0;
