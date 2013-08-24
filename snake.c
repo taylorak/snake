@@ -8,6 +8,7 @@ snake *init_snake(int x_pos, int y_pos,direction dir)
   // init new snake and first segment
   snake *new_snake = NULL;
   segment *first_segment = NULL;
+
   if((new_snake = malloc(sizeof(snake))) == NULL) {
     return NULL;
   }
